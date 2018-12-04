@@ -1,4 +1,3 @@
-import datetime as dt
 from datetime import datetime, timedelta
 
 from airflow import DAG
