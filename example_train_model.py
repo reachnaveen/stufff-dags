@@ -31,4 +31,4 @@ opr_train_model = PythonOperator(task_id='train_model', python_callable=train_mo
 opr_upload_predictions = PythonOperator(task_id='upload_predictions', python_callable=upload_predictions, dag=dag)
 
 # link operations
-opr_export_events >> train_model >> upload_predictions
+opr_export_events >> opr_train_model >> opr_upload_predictions
