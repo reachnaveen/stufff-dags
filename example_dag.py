@@ -1,4 +1,5 @@
 import datetime as dt
+from datetime import datetime, timedelta
 
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
@@ -6,7 +7,7 @@ from airflow.operators.python_operator import PythonOperator
 
 default_args = {
     'owner': 'airflow',
-    'start_date': dt.datetime(2018, 12, 1, 10, 00, 00),
+    'start_date': datetime(2018, 12, 1, 10, 00, 00),
     'concurrency': 1,
     'retries': 1
 }
