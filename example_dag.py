@@ -13,4 +13,4 @@ default_args = {
 
 dag = DAG('example', default_args=default_args, schedule_interval=timedelta(seconds=120))
 
-opr_hello = BashOperator(task_id='task1', bash_command='echo "Hi!!"')
+task1 = BashOperator(task_id='task1', bash_command='echo "Hi!!"', dag=dag)
