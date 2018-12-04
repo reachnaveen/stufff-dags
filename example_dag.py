@@ -11,6 +11,6 @@ default_args = {
     'retries': 1
 }
 
-dag = DAG('example', default_args=default_args, schedule_interval=timedelta(seconds=120))
+dag = DAG('example', default_args=default_args, schedule_interval=timedelta(seconds=300))
 
 task1 = BashOperator(task_id='task1', bash_command='echo "Hi!!"', dag=dag)
