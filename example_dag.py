@@ -13,4 +13,8 @@ default_args = {
 
 dag = DAG('example', default_args=default_args, schedule_interval=timedelta(seconds=300))
 
-task1 = BashOperator(task_id='task1', bash_command='echo "Hi!!"', dag=dag)
+task1 = BashOperator(task_id='greeting', bash_command='echo "Hi!!"', dag=dag)
+
+task2 = BashOperator(task_id='sleep', bash_command='sleep 5', retries=3, dag=dag)
+
+task1 >> task2
