@@ -21,7 +21,7 @@ dag = DAG(
 
 start = DummyOperator(task_id='run_this_first', dag=dag)
 
-passing = KubernetesPodOperator(namespace='default',
+passing = KubernetesPodOperator(namespace='airflow',
                           image="perl:latest",
                           cmds=["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"],
                           arguments=["print('hello world')"],
@@ -32,7 +32,7 @@ passing = KubernetesPodOperator(namespace='default',
                           dag=dag
                           )
 
-failing = KubernetesPodOperator(namespace='default',
+failing = KubernetesPodOperator(namespace='airflow',
                           image="alpine",
                           cmds=["date"],
                           labels={"foo": "bar"},
